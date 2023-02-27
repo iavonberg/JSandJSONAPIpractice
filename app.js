@@ -84,46 +84,89 @@
 
 // *** ITERATE ON OBJECTS ***
 
- const friend1 = {
-     name: "Laurence"
- };
+//  const friend1 = {
+//      name: "Laurence"
+//  };
 
- const friend2 = {
-    name: "John"
+//  const friend2 = {
+//     name: "John"
+// };
+
+// const friend3 = {
+//     name: "Jane"
+//  };
+
+//  const friend = {
+//     name : 'Laurence Svekis',
+//     age : 40,
+//     gender : 'male',
+//     location : {
+//         city : "Toronto",
+//         province : "Ontario",
+//         country: "Canada",
+//         address : "100 Main Street"
+//     }
+// }
+
+// const friends = [friend1, friend2, friend3];
+// console.log(friends);
+
+// for (const key in friends) {
+//     console.log(friends[key]);
+// }
+
+// console.log(Object.entries(friend));
+// for(const [key,value] of Object.entries(friends)) {
+//     console.log(key);
+//     console.log(value);
+//     console.log(value.name);
+// }
+
+// for (const [key] of Object.entries(friends)) {
+//     friends[key].lastName = 'Smith' 
+// }
+
+// console.log(friends);
+
+// *** JSON Parse and Stringify ***
+
+const friend1 = {
+    name: "Laurence"
+};
+
+const friend2 = {
+   name: "John"
 };
 
 const friend3 = {
-    name: "Jane"
- };
+   name: "Jane"
+};
 
- const friend = {
-    name : 'Laurence Svekis',
-    age : 40,
-    gender : 'male',
-    location : {
-        city : "Toronto",
-        province : "Ontario",
-        country: "Canada",
-        address : "100 Main Street"
-    }
+const friend = {
+   name : 'Laurence Svekis',
+   age : 40,
+   gender : 'male',
+   location : {
+       city : "Toronto",
+       province : "Ontario",
+       country: "Canada",
+       address : "100 Main Street"
+   }
 }
 
 const friends = [friend1, friend2, friend3];
-console.log(friends);
+console.log(JSON.stringify(friends));
+const str = '[{"name":"Laurence"},{"name":"John"},{"name":"Jane"}]'
+const friends2 = JSON.parse(str);
+friends2.push({
+    "name" : "Wendy",
+});
 
-for (const key in friends) {
-    console.log(friends[key]);
-}
+let html = "";
 
-console.log(Object.entries(friend));
-for(const [key,value] of Object.entries(friends)) {
-    console.log(key);
-    console.log(value);
-    console.log(value.name);
-}
+friends2.forEach(function(val) {
+    console.log(val.name);
+    html += val.name + "<br>";
+})
 
-for (const [key] of Object.entries(friends)) {
-    friends[key].lastName = 'Smith' 
-}
-
-console.log(friends);
+document.querySelector(".output").innerHTML = html;
