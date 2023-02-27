@@ -21,22 +21,22 @@
 
 // ***ARRAYS***
 
-const friends = ['Laurence', 'John', 'Steve', 'Linda', 'Jane'];
-console.log(friends);
-console.log(friends[2]);
+// const friends = ['Laurence', 'John', 'Steve', 'Linda', 'Jane'];
+// console.log(friends);
+// console.log(friends[2]);
 
-const friend1 = {
-    name: 'Laurence',
-};
+// const friend1 = {
+//     name: 'Laurence',
+// };
 
-const friend2 = {
-    name: 'John',
-};
+// const friend2 = {
+//     name: 'John',
+// };
 
-const friendList = [friend1, friend2];
-friendList[10] = {
-    name: 'Linda'
-}
-console.log(friendList);
+// const friendList = [friend1, friend2];
+// friendList[10] = {
+//     name: 'Linda'
+// }
+// console.log(friendList);
 
-document.querySelector('.output').textContent = friendList[1].name;
+// document.querySelector('.output').textContent = friendList[1].name;
