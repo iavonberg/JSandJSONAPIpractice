@@ -178,8 +178,31 @@
 
 // *** WEB API GET ***
 
-const url = "https://dummyapi.io/data/v1/user?page=1&limit=5"
-fetch(url, {method: 'GET', 
-headers: {'app-id': appidKey}}).then(function(res) {
-    console.log(res);
-})
+// const url = "https://dummyapi.io/data/v1/user?page=1&limit=5";
+// fetch(url, { 
+// headers: {'app-id': appidKey}}).then(function(res) {
+//     console.log(res);
+//     return res.json()
+// }).then(function(data) {
+//         console.log(data.data)
+//         data.data.forEach(function(val) {
+//             document.querySelector('.output').innerHTML += val.firstName + " " + val.lastName + "</br>";
+//         });
+//     }).catch(function(error) {
+//         console.log(error);
+//     })
+
+// *** MY JSON JSON FILE ***
+
+const url = "https://api.myjson.online/v1/records/5caf1241-4345-4db3-a0c2-04f3c5986650"
+fetch(url).then(function(res) {
+        console.log(res);
+        return res.json()
+    }).then(function(data) {
+        console.log(data.data)
+        data.data.dogs.forEach(function(dogInfo) {
+            document.querySelector('.output').innerHTML += `<h3> Name: ${dogInfo.name}</h3> Breed: ${dogInfo.breed}<br> Gender: ${dogInfo.gender} <br> Color: ${dogInfo.color}`;
+        })
+        }).catch(function(error) {
+            console.log(error);
+        })
