@@ -128,45 +128,51 @@
 
 // console.log(friends);
 
-// *** JSON Parse and Stringify ***
+// *** JSON PARSE AND STRINGIFY ***
 
-const friend1 = {
-    name: "Laurence"
-};
+// const friend1 = {
+//     name: "Laurence"
+// };
 
-const friend2 = {
-   name: "John"
-};
+// const friend2 = {
+//    name: "John"
+// };
 
-const friend3 = {
-   name: "Jane"
-};
+// const friend3 = {
+//    name: "Jane"
+// };
 
-const friend = {
-   name : 'Laurence Svekis',
-   age : 40,
-   gender : 'male',
-   location : {
-       city : "Toronto",
-       province : "Ontario",
-       country: "Canada",
-       address : "100 Main Street"
-   }
-}
+// const friend = {
+//    name : 'Laurence Svekis',
+//    age : 40,
+//    gender : 'male',
+//    location : {
+//        city : "Toronto",
+//        province : "Ontario",
+//        country: "Canada",
+//        address : "100 Main Street"
+//    }
+// }
 
-const friends = [friend1, friend2, friend3];
-console.log(JSON.stringify(friends));
-const str = '[{"name":"Laurence"},{"name":"John"},{"name":"Jane"}]'
-const friends2 = JSON.parse(str);
-friends2.push({
-    "name" : "Wendy",
-});
+// const friends = [friend1, friend2, friend3];
+// console.log(JSON.stringify(friends));
+// const str = '[{"name":"Laurence"},{"name":"John"},{"name":"Jane"}]'
+// const friends2 = JSON.parse(str);
+// friends2.push({
+//     "name" : "Wendy",
+// });
 
-let html = "";
+// let html = "";
 
-friends2.forEach(function(val) {
-    console.log(val.name);
-    html += val.name + "<br>";
-})
+// friends2.forEach(function(val) {
+//     console.log(val.name);
+//     html += val.name + "<br>";
+// })
 
-document.querySelector(".output").innerHTML = html;
+// document.querySelector(".output").innerHTML = html;
+
+
+// *** JSON CONTENT FILES ***
+
+// SEE DATA.JSON
+
