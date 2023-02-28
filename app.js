@@ -176,3 +176,10 @@
 
 // SEE DATA.JSON
 
+// *** WEB API GET ***
+
+const url = "https://dummyapi.io/data/v1/user?page=1&limit=5"
+fetch(url, {method: 'GET', 
+headers: {'app-id': appidKey}}).then(function(res) {
+    console.log(res);
+})
