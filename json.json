@@ -1,0 +1,40 @@
+{
+    "dogs": [
+      {
+        "name": "Ruby",
+        "breed": "Vizsla",
+        "color": "Red",
+        "gender": "Female"
+      },
+      {
+        "name": "Tesla",
+        "breed": "Vizsla",
+        "color": "Red",
+        "gender": "Male"
+      },
+      {
+        "name": "Odin",
+        "breed": "Vizsla",
+        "color": "Red",
+        "gender": "Male"
+      },
+      {
+        "name": "Voltaire",
+        "breed": "Cavalier King Charles Spaniel",
+        "color": "White and Red",
+        "gender": "Male"
+      },
+      {
+        "name": "Sumo",
+        "breed": "Japanese Chin",
+        "color": "White and Black",
+        "gender": "Male"
+      },
+      {
+        "name": "Piper",
+        "breed": "Shiloh Shepherd",
+        "color": "Black, Brown and Cream",
+        "gender": "Female"
+      }
+    ]
+  }

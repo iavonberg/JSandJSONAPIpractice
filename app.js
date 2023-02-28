@@ -194,15 +194,45 @@
 
 // *** MY JSON JSON FILE ***
 
-const url = "https://api.myjson.online/v1/records/5caf1241-4345-4db3-a0c2-04f3c5986650"
-fetch(url).then(function(res) {
-        console.log(res);
-        return res.json()
-    }).then(function(data) {
-        console.log(data.data)
-        data.data.dogs.forEach(function(dogInfo) {
-            document.querySelector('.output').innerHTML += `<h3> Name: ${dogInfo.name}</h3> Breed: ${dogInfo.breed}<br> Gender: ${dogInfo.gender} <br> Color: ${dogInfo.color}`;
-        })
-        }).catch(function(error) {
-            console.log(error);
-        })
+// const url = "https://api.myjson.online/v1/records/5caf1241-4345-4db3-a0c2-04f3c5986650"
+// fetch(url).then(function(res) {
+//         console.log(res);
+//         return res.json()
+//     }).then(function(data) {
+//         console.log(data.data)
+//         data.data.dogs.forEach(function(dogInfo) {
+//             document.querySelector('.output').innerHTML += `<h3> Name: ${dogInfo.name}</h3> Breed: ${dogInfo.breed}<br> Gender: ${dogInfo.gender} <br> Color: ${dogInfo.color}`;
+//         })
+//         }).catch(function(error) {
+//             console.log(error);
+//         })
+
+// *** JAVASCRIPT AND FETCH API VS XHR ***
+
+const url = "json.json"
+let xHR = new XMLHttpRequest();
+xHR.open('GET', url);
+xHR.responseType = 'json';
+xHR.onload = function() {
+   console.log(xHR.response);
+   let data = xHR.response;
+   data.dogs.forEach(function(dogInfo) {
+    document.querySelector('.output').innerHTML += `<h3> Name: ${dogInfo.name}</h3> Breed: ${dogInfo.breed}<br> Gender: ${dogInfo.gender} <br> Color: ${dogInfo.color}`;
+   })
+}
+
+xHR.send();
+
+console.log(xHR);
+
+// fetch(url).then(function(res) {
+//         console.log(res);
+//         return res.json()
+//     }).then(function(data) {
+//         console.log(data.dogs)
+//         data.dogs.forEach(function(dogInfo) {
+//             document.querySelector('.output').innerHTML += `<h3> Name: ${dogInfo.name}</h3> Breed: ${dogInfo.breed}<br> Gender: ${dogInfo.gender} <br> Color: ${dogInfo.color}`;
+//         })
+//         }).catch(function(error) {
+//             console.log(error);
+//         })
