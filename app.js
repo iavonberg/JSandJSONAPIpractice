@@ -209,21 +209,21 @@
 
 // *** JAVASCRIPT AND FETCH API VS XHR ***
 
-const url = "json.json"
-let xHR = new XMLHttpRequest();
-xHR.open('GET', url);
-xHR.responseType = 'json';
-xHR.onload = function() {
-   console.log(xHR.response);
-   let data = xHR.response;
-   data.dogs.forEach(function(dogInfo) {
-    document.querySelector('.output').innerHTML += `<h3> Name: ${dogInfo.name}</h3> Breed: ${dogInfo.breed}<br> Gender: ${dogInfo.gender} <br> Color: ${dogInfo.color}`;
-   })
-}
+// const url = "json.json"
+// let xHR = new XMLHttpRequest();
+// xHR.open('GET', url);
+// xHR.responseType = 'json';
+// xHR.onload = function() {
+//    console.log(xHR.response);
+//    let data = xHR.response;
+//    data.dogs.forEach(function(dogInfo) {
+//     document.querySelector('.output').innerHTML += `<h3> Name: ${dogInfo.name}</h3> Breed: ${dogInfo.breed}<br> Gender: ${dogInfo.gender} <br> Color: ${dogInfo.color}`;
+//    })
+// }
 
-xHR.send();
+// xHR.send();
 
-console.log(xHR);
+// console.log(xHR);
 
 // fetch(url).then(function(res) {
 //         console.log(res);
@@ -236,3 +236,12 @@ console.log(xHR);
 //         }).catch(function(error) {
 //             console.log(error);
 //         })
+
+// *** ARROW EXPRESSION ***
+
+const url = "json.json";
+fetch(url).then(res => res.json()).then(json => console.log(json));
+const output = document.querySelector('.output');
+
+fetch(url).then(res => res.json()).then(json =>
+json.dogs.forEach(val => output.innerHTML += val.name + "<br>"));
