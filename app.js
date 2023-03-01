@@ -248,26 +248,53 @@
 
 // *** RANDOM USER API ***
 
-const url = 'https://randomuser.me/api/?results=10';
+// const url = 'https://randomuser.me/api/?results=10';
+// const btn = document.querySelector('button');
+// const output = document.querySelector('.output');
+// btn.addEventListener('click', getData);
+
+// function getData() {
+//     output.innerHTML = "";
+//     fetch(url).then(function(res) {
+//         return res.json()
+//     }).then(function(data) {
+//         console.log(data.results);
+//         data.results.forEach(function(val) {
+//         console.log(val.name);
+//         console.log(val.picture.thumbnail);
+//         let div = document.createElement('div');
+//         div.innerHTML += `${val.name.title} ${val.name.first} ${val.name.last}` + "<br>" + `${val.email}`;
+//         let pic = document.createElement('img');
+//         pic.setAttribute('src', val.picture.thumbnail);
+//         pic.style.display = 'block';
+//         div.appendChild(pic);
+//         output.appendChild(div);
+//         })})
+// }
+
+// *** REDDIT POST API ***
+
+const url = 'https://www.reddit.com/r/test/top/.json?limit=5';
 const btn = document.querySelector('button');
 const output = document.querySelector('.output');
 btn.addEventListener('click', getData);
 
-function getData() {
+function getData(){
+    fetch(url).then(function(rep) {
+        return rep.json()
+    }).then(function(data){
+        console.log(data.data.children);
+        makeHTML(data.data.children);
+    })
+}
+
+function makeHTML (val) {
     output.innerHTML = "";
-    fetch(url).then(function(res) {
-        return res.json()
-    }).then(function(data) {
-        console.log(data.results);
-        data.results.forEach(function(val) {
-        console.log(val.name);
-        console.log(val.picture.thumbnail);
+    val.forEach(function(item) {
+        console.log(item.data.title);
+        console.log(item.data.url);
         let div = document.createElement('div');
-        div.innerHTML += `${val.name.title} ${val.name.first} ${val.name.last}` + "<br>" + `${val.email}`;
-        let pic = document.createElement('img');
-        pic.setAttribute('src', val.picture.thumbnail);
-        pic.style.display = 'block';
-        div.appendChild(pic);
-        output.appendChild(div);
-        })})
+        div.innerHTML = `<a href=${item.data.url}" target="_blank">${item.data.title}</a>`;
+        output.appendChild(div); 
+    })
 }
