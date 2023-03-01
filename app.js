@@ -239,9 +239,35 @@
 
 // *** ARROW EXPRESSION ***
 
-const url = "json.json";
-fetch(url).then(res => res.json()).then(json => console.log(json));
-const output = document.querySelector('.output');
+// const url = "json.json";
+// fetch(url).then(res => res.json()).then(json => console.log(json));
+// const output = document.querySelector('.output');
 
-fetch(url).then(res => res.json()).then(json =>
-json.dogs.forEach(val => output.innerHTML += val.name + "<br>"));
+// fetch(url).then(res => res.json()).then(json =>
+// json.dogs.forEach(val => output.innerHTML += val.name + "<br>"));
+
+// *** RANDOM USER API ***
+
+const url = 'https://randomuser.me/api/?results=10';
+const btn = document.querySelector('button');
+const output = document.querySelector('.output');
+btn.addEventListener('click', getData);
+
+function getData() {
+    output.innerHTML = "";
+    fetch(url).then(function(res) {
+        return res.json()
+    }).then(function(data) {
+        console.log(data.results);
+        data.results.forEach(function(val) {
+        console.log(val.name);
+        console.log(val.picture.thumbnail);
+        let div = document.createElement('div');
+        div.innerHTML += `${val.name.title} ${val.name.first} ${val.name.last}` + "<br>" + `${val.email}`;
+        let pic = document.createElement('img');
+        pic.setAttribute('src', val.picture.thumbnail);
+        pic.style.display = 'block';
+        div.appendChild(pic);
+        output.appendChild(div);
+        })})
+}
