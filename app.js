@@ -274,27 +274,50 @@
 
 // *** REDDIT POST API ***
 
-const url = 'https://www.reddit.com/r/test/top/.json?limit=5';
+// const url = 'https://www.reddit.com/r/test/top/.json?limit=5';
+// const btn = document.querySelector('button');
+// const output = document.querySelector('.output');
+// btn.addEventListener('click', getData);
+
+// function getData(){
+//     fetch(url).then(function(rep) {
+//         return rep.json()
+//     }).then(function(data){
+//         console.log(data.data.children);
+//         makeHTML(data.data.children);
+//     })
+// }
+
+// function makeHTML (val) {
+//     output.innerHTML = "";
+//     val.forEach(function(item) {
+//         console.log(item.data.title);
+//         console.log(item.data.url);
+//         let div = document.createElement('div');
+//         div.innerHTML = `<a href=${item.data.url}" target="_blank">${item.data.title}</a>`;
+//         output.appendChild(div); 
+//     })
+// }
+
+// *** GITHUB REPO API ***
+
+const url = "https://api.github.com/search/repositories?q=tetris";
 const btn = document.querySelector('button');
 const output = document.querySelector('.output');
 btn.addEventListener('click', getData);
 
-function getData(){
-    fetch(url).then(function(rep) {
-        return rep.json()
-    }).then(function(data){
-        console.log(data.data.children);
-        makeHTML(data.data.children);
-    })
-}
-
-function makeHTML (val) {
+function getData() {
     output.innerHTML = "";
-    val.forEach(function(item) {
-        console.log(item.data.title);
-        console.log(item.data.url);
-        let div = document.createElement('div');
-        div.innerHTML = `<a href=${item.data.url}" target="_blank">${item.data.title}</a>`;
-        output.appendChild(div); 
+    fetch(url).then(function(response) {
+        return response.json();
+    }).then(function (data) {
+        console.log(data);
+        data.items.forEach(function (val) {
+            let div = document.createElement('div');
+            div.innerHTML = `<p><a href=${val.url} target='_blank'>${val.name}</a></p>${val.description}<br>`;
+            output.appendChild(div);
+        })
+    }).catch(function() {
+        console.log("error");
     })
 }
