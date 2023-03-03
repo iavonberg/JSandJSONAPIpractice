@@ -324,31 +324,27 @@
 
 // *** STACK OVERFLOW API ***
 
-const url = 'https://api.stackexchange.com/2.2/questions?order=desc&sort=activity&tagged=javascript&site=stackoverflow';
-const btn = document.querySelector('button');
-const output = document.querySelector('.output');
-btn.addEventListener('click', getData);
+// const url = 'https://api.stackexchange.com/2.2/questions?order=desc&sort=activity&tagged=javascript&site=stackoverflow';
+// const btn = document.querySelector('button');
+// const output = document.querySelector('.output');
+// btn.addEventListener('click', getData);
 
-function getData(e) {
-    e.preventDefault();
-    fetch(url).then(function(res) {
-        return res.json();
-    }).then(function(data) {
-        console.log(data.items);
-        data.items.forEach(function(item){
-            console.log(item.question_id);
-            console.log(item.title);
-            console.log(item.link);
-            let div = document.createElement('div');
-            div.innerHTML = `${item.question_id} <a href="${item.link}" target="_blank"> ${item.title}</a>`;
-            output.appendChild(div);
-        })
-    }).catch(function(e) {
-        console.log(e);
-    })
-
-}
-
-// function makeHTML () {
+// function getData(e) {
+//     e.preventDefault();
+//     fetch(url).then(function(res) {
+//         return res.json();
+//     }).then(function(data) {
+//         console.log(data.items);
+//         data.items.forEach(function(item){
+//             console.log(item.question_id);
+//             console.log(item.title);
+//             console.log(item.link);
+//             let div = document.createElement('div');
+//             div.innerHTML = `${item.question_id} <a href="${item.link}" target="_blank"> ${item.title}</a>`;
+//             output.appendChild(div);
+//         })
+//     }).catch(function(e) {
+//         console.log(e);
+//     })
 
 // }
